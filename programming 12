@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+private:
+    string title;
+    string author;
+    int pages;
+
+pubic:
+    Book(string t, string a, int p) {
+        title = t;
+        author = a;
+        pages = p;
+
+  ]
+    Book(const Book &b) {
+        title = b.title;
+        author = b.author;
+        pages = b.pages;
+    }
+
+    void display() {
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+        cout << "Pages: " << pages << endl;
+    }
+};
+
+int main() {
+    string title, author;
+    int pages;
+
+    cout << "Enter Book Details:\n";
+    cout << "Title: ";
+    getline(cin, title);
+    cout << "Author: ";
+    getline(cin, author);
