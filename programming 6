@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class Employee {
+private:
+    string name;
+    int empID;
+    float basic, hra, da, gross;
+
+public:
+    void enterDetails() {
+        cout << "Enter Employee Name: ";
+        getline(cin, name);
+        cout << "Enter Employee ID: ";
+        cin >> empID;
+        cout << "Enter Basic Salary: ";
+        cin >> basic;
+        cout << "Enter HRA (%): ";
+        cin >> hra;
+        cout << "Enter DA (%): ";
+        cin >> da;
+        cin.ignore(); 
+    }
+
+    void calculateGross() {
+        float hra_amt = (hra * basic) / 100;
+        float da_amt = (da * basic) / 100;
+        gross = basic + hra_amt + da_amt;
+    }
+
+    void displayGross() {
+        cout << "\nEmployee Name: " << name << endl;
+        cout << "Employee ID: " << empID << endl;
+        cout << "Gross Salary: " << gross << endl;
+    }
+};
+
+int main() {
+    Employee emp;
+    emp.enterDetails();
+    emp.calculateGross();
+    emp.displayGross();
+    return 0;
+}
