@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+template <class T>
+class Box {
+private:
+    T value;
+
+public:
+    void setValue(T val) {
+        value = val;
+    }
+
+    void display() {
+        cout << "Value: " << value << endl;
+    }
+};
+
+int main() {
+    Box<int> intBox;
+    int i;
+    cout << "Enter an integer value: ";
+    cin >> i;
+    intBox.setValue(i);
+    intBox.display();
+
+    Box<double> doubleBox;
+    double d;
+    cout << "Enter a double value: ";
+    cin >> d;
+    doubleBox.setValue(d);
+    doubleBox.display();
+
+    return 0;
+}
