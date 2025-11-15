@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+protected:
+    string name;
+    int rollNumber;
+
+public:
+    void getDetails() {
+        cout << "Enter student name: ";
+        getline(cin, name);
+        cout << "Enter roll number: ";
+        cin >> rollNumber;
+        cin.ignore(); 
+    }
+
+    void showDetails() {
+        cout << "Name: " << name << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+    }
+};
+
+class Exam : public Student {
+private:
+    int marks;
+
+public:
+    void getMarks() {
+        cout << "Enter marks obtained: ";
+        cin >> marks;
+    }
+
+    void showMarks() {
+        cout << "Marks Obtained: " << marks << endl;
+    }
+};
+
+int main() {
+    Exam student1;
+
+    student1.getDetails();   
+    student1.getMarks();     
+
+    cout << "\nStudent Info:\n";
+    student1.showDetails();  
+    student1.showMarks();    
+
+    return 0;
+}
