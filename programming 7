@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int roll_number;
+    string prn;
+
+public:
+    void getDetails() {
+        cout << "Enter Name: ";
+        getline(cin, name);
+        cout << "Enter Roll Number: ";
+        cin >> roll_number;
+        cin.ignore();
+        cout << "Enter PRN: ";
+        getline(cin, prn);
+    }
+
+    void showDetails() {
+        cout << "Name: " << name << ", Roll Number: " << roll_number << ", PRN: " << prn << endl;
+    }
+};
+
+int main() {
+    int n;
+    cout << "How many students? ";
+    cin >> n;
+    cin.ignore();
+
+    Student students[100]; 
+
+    for (int i = 0; i < n; i++) {
+        cout << "\nEnter details of student " << i + 1 << ":" << endl;
+        students[i].getDetails();
+    }
+
+    cout << "\nStudent Details:\n";
+    for (int i = 0; i < n; i++) {
+        students[i].showDetails();
+    }
+
+    return 0;
+}
