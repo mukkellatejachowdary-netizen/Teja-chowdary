@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+class Numbers {
+private:
+    int arr[100];
+    int size;
+
+public:
+    void inputNumbers() {
+        cout << "Enter the number of elements: ";
+        cin >> size;
+        cout << "Enter " << size << " numbers:\n";
+        for (int i = 0; i < size; i++) {
+            cin >> arr[i];
+        }
+    }
+
+    friend void findSumAndCount(Numbers &numObj);
+};
+
+void findSumAndCount(Numbers &numObj) {
+    int sum = 0, count = 0;
+    for (int i = 0; i < numObj.size; i++) {
+        if (numObj.arr[i] % 9 == 0) {
+            sum += numObj.arr[i];
+            count++;
+        }
+    }
+    cout << "Count of numbers divisible by 9: " << count << endl;
+    cout << "Sum of numbers divisible by 9: " << sum << endl;
+}
+
+int main() {
+    Numbers numbers;
+    numbers.inputNumbers();
+    findSumAndCount(numbers);
+
+    return 0;
+}
