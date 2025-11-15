@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    void display() {
+        cout << "Display from Base class" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void display() {  // overriding base class display()
+        cout << "Display from Derived class" << endl;
+    }
+};
+
+int main() {
+    Derived obj;
+    obj.display();  // Calls Derived class display()
+
+    return 0;
+}
