@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+const float PI = 3.14159;
+
+int area(int side) {
+    return side * side;
+}
+
+int area(int length, int breadth) {
+    return length * breadth;
+}
+
+
+float area(float radius) {
+    return PI * radius * radius;
+}
+
+int main() {
+    int choice;
+    cout << "Choose shape to find area:\n";
+    cout << "1. Square\n2. Rectangle\n3. Circle\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    switch (choice) {
+        case 1: {
+            int side;
+            cout << "Enter side of square: ";
+            cin >> side;
+            cout << "Area of square: " << area(side) << endl;
+            break;
+        }
+        case 2: {
+            int length, breadth;
+            cout << "Enter length and breadth of rectangle: ";
+            cin >> length >> breadth;
+            cout << "Area of rectangle: " << area(length, breadth) << endl;
+            break;
+        }
+        case 3: {
+            float radius;
+            cout << "Enter radius of circle: ";
+            cin >> radius;
+            cout << "Area of circle: " << area(radius) << endl;
+            break;
+        }
+        default:
+            cout << "Invalid choice\n";
+    }
+
+    return 0;
+}
