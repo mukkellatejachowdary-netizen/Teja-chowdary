@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int rollNumber;
+    string PRN;
+
+public:
+    // Parameterized constructor
+    Student(string n, int r, string p) {
+        name = n;
+        rollNumber = r;
+        PRN = p;
+    }
+
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+        cout << "PRN: " << PRN << endl;
+    }
+};
+
+int main() {
+    string name, prn;
+    int roll;
+
+    cout << "Enter student's name: ";
+    getline(cin, name);
+    cout << "Enter roll number: ";
+    cin >> roll;
+    cin.ignore();  
+    cout << "Enter PRN: ";
+    getline(cin, prn);
+    Student student(name, roll, prn);
+
+    cout << "\nStudent Details:\n";
+    student.display();
+
+    return 0;
+}
