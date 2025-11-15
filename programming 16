@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class
+class Student {
+protected:
+    string name;
+    int rollNumber;
+
+public:
+    void getDetails() {
+        cout << "Enter student name: ";
+        getline(cin, name);
+        cout << "Enter roll number: ";
+        cin >> rollNumber;
+        cin.ignore(); // clear input buffer
+    }
+
+    void showDetails() {
+        cout << "Name: " << name << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+    }
+};
+
+// Derived class inherits Student class
+class Exam : public Student {
+private:
+    int marks;
+
+public:
+    void getMarks() {
+        cout << "Enter marks obtained: ";
+        cin >> marks;
+    }
+
+    void showMarks() {
+        cout << "Marks Obtained: " << marks << endl;
+    }
+};
+
+int main() {
+    Exam student1;
+
+    student1.getDetails();   // From base class
+    student1.getMarks();     // From derived class
+
+    cout << "\nStudent Info:\n";
+    student1.showDetails();  // From base class
+    student1.showMarks();    // From derived class
+
+    return 0;
+}
