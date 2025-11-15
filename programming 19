@@ -1,0 +1,35 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ofstream outFile;
+    string filename, text;
+
+    cout << "Enter the file name to open for writing: ";
+    getline(cin, filename);
+
+    // Open the file for writing
+    outFile.open(filename);
+
+    if (!outFile) {
+        cout << "Error: Could not open file for writing." << endl;
+        return 1;  // Exit on failure
+    }
+
+    cout << "Enter text to write to the file (type 'exit' on a new line to finish):\n";
+
+    while (true) {
+        getline(cin, text);
+        if (text == "exit") {
+            break;
+        }
+        outFile << text << endl;
+    }
+
+    outFile.close();
+    cout << "File written and closed successfully." << endl;
+
+    return 0;
+}
