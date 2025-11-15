@@ -1,0 +1,28 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream inputFile;
+    string filename, line;
+
+    cout << "Enter the file name to open for reading: ";
+    getline(cin, filename);
+
+    inputFile.open(filename);
+
+    if (!inputFile) {
+        cout << "Error: Could not open file for reading." << endl;
+        return 1;
+    }
+
+    cout << "Contents of the file:\n";
+    while (getline(inputFile, line)) {
+        cout << line << endl;
+    }
+
+    inputFile.close();
+
+    return 0;
+}
